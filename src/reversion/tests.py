@@ -768,6 +768,9 @@ urlpatterns = patterns("",
     
     url("^admin/", include(site.get_urls(), namespace="admin")),
 
+    url('', include(lambda: patterns('',
+        url('^$', lambda r: HttpResponse(), name="login"),), namespace='account')),
+    url('', lambda r: HttpResponse(), name='registration_register'),
 )
 
 
